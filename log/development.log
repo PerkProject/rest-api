@@ -1,0 +1,2067 @@
+Started GET "/" for 127.0.0.1 at 2018-09-17 18:08:44 +0300
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveAdminComments (20180829124543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180829124543"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20180829125607)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price_cents" integer DEFAULT 0 NOT NULL, "price_currency" varchar DEFAULT 'RUB' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180829125607"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateImages (20180829130635)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180829130635"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 15:11:54.059462"], ["updated_at", "2018-09-17 15:11:54.059462"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_images_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_images_on_product_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-09-17 18:12:07 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 21ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api" for 127.0.0.1 at 2018-09-17 18:12:30 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/api"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-09-17 18:12:52 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (7392.6ms)
+Completed 200 OK in 7403ms (Views: 7400.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 18:13:05 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (129.8ms)
+Completed 200 OK in 139ms (Views: 138.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 18:13:08 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (135.5ms)
+Completed 200 OK in 158ms (Views: 147.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 18:13:11 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (138.1ms)
+Completed 200 OK in 152ms (Views: 150.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 18:13:14 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (126.6ms)
+Completed 200 OK in 142ms (Views: 140.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 18:13:16 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (130.4ms)
+Completed 200 OK in 144ms (Views: 142.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-09-17 18:13:18 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (116.7ms)
+Completed 200 OK in 124ms (Views: 123.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 18:13:20 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (128.2ms)
+Completed 200 OK in 142ms (Views: 140.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/images/new" for 127.0.0.1 at 2018-09-17 18:13:36 +0300
+Processing by Admin::ImagesController#new as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/new.html.arb (139.2ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for #<Proc:0x007f9b061576f8>
+Did you mean?  tap):
+    1: insert_tag renderer_for(:new)
+  
+app/admin/images.rb:24:in `block (3 levels) in <top (required)>'
+app/admin/images.rb:23:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 18:13:49 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (121.9ms)
+Completed 200 OK in 136ms (Views: 134.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products/new" for 127.0.0.1 at 2018-09-17 18:13:53 +0300
+Processing by Admin::ProductsController#new as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/new.html.arb (168.1ms)
+Completed 200 OK in 189ms (Views: 182.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/products" for 127.0.0.1 at 2018-09-17 18:14:11 +0300
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p5ERXTgxIDDE4C/5digprU2xNnfiwdzMuFfOMJDnXk4KmLpYGjlFN5pUloKW07400zONZTJjOFRQo8RkPw+JAg==", "product"=>{"title"=>"Product1", "price"=>"100.00", "price_currency"=>"RUB", "preview_cache"=>"", "remove_preview"=>"0"}, "commit"=>"Create Product"}
+Unpermitted parameter: :price
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "products" ("title", "preview", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Product1"], ["preview", nil], ["created_at", "2018-09-17 15:14:11.433830"], ["updated_at", "2018-09-17 15:14:11.433830"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/products/1
+Completed 302 Found in 41ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/products/1" for 127.0.0.1 at 2018-09-17 18:14:11 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (134.5ms)
+Completed 200 OK in 151ms (Views: 146.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products/1/edit" for 127.0.0.1 at 2018-09-17 18:14:18 +0300
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb (152.4ms)
+Completed 200 OK in 169ms (Views: 167.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/admin/products/1" for 127.0.0.1 at 2018-09-17 18:14:24 +0300
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gQ6xW1M1hbMw6aWWfZq50eUxxF9CSV1WsVJsC/m+HB0sBxpecT3gtG5dHO2dYS5Ie7N/TZLruc5ZpmZfVlbLUQ==", "product"=>{"title"=>"Product1", "price"=>"1000", "price_currency"=>"RUB", "preview_cache"=>"", "remove_preview"=>"1"}, "commit"=>"Update Product", "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :price
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "products" SET "preview" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["preview", nil], ["updated_at", "2018-09-17 15:14:24.486118"], ["id", 1]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/products/1
+Completed 302 Found in 42ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/admin/products/1" for 127.0.0.1 at 2018-09-17 18:14:24 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (122.9ms)
+Completed 200 OK in 135ms (Views: 134.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 18:25:45 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (171.5ms)
+Completed 200 OK in 186ms (Views: 183.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/images/new" for 127.0.0.1 at 2018-09-17 18:25:48 +0300
+Processing by Admin::ImagesController#new as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/new.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/new.html.arb (144.0ms)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for #<Proc:0x007f9b060c99c0>
+Did you mean?  tap):
+    1: insert_tag renderer_for(:new)
+  
+app/admin/images.rb:24:in `block (3 levels) in <top (required)>'
+app/admin/images.rb:23:in `block (2 levels) in <top (required)>'
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:08:20 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (366.1ms)
+Completed 200 OK in 409ms (Views: 386.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Blue"], ["description", "Blue"], ["preview", "preview.png"], ["price_cents", 2116], ["created_at", "2018-09-17 19:10:58.166939"], ["updated_at", "2018-09-17 19:10:58.166939"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 2], ["favorite", "t"], ["created_at", "2018-09-17 19:10:58.272981"], ["updated_at", "2018-09-17 19:10:58.272981"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 2], ["created_at", "2018-09-17 19:10:58.312227"], ["updated_at", "2018-09-17 19:10:58.312227"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 2], ["created_at", "2018-09-17 19:10:58.369667"], ["updated_at", "2018-09-17 19:10:58.369667"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 2], ["created_at", "2018-09-17 19:10:58.418280"], ["updated_at", "2018-09-17 19:10:58.418280"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 2], ["created_at", "2018-09-17 19:10:58.471638"], ["updated_at", "2018-09-17 19:10:58.471638"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dark"], ["description", "Dark"], ["preview", "preview.png"], ["price_cents", 9151], ["created_at", "2018-09-17 19:10:58.510892"], ["updated_at", "2018-09-17 19:10:58.510892"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 3], ["favorite", "t"], ["created_at", "2018-09-17 19:10:58.552139"], ["updated_at", "2018-09-17 19:10:58.552139"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 3], ["created_at", "2018-09-17 19:10:58.590146"], ["updated_at", "2018-09-17 19:10:58.590146"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 3], ["created_at", "2018-09-17 19:10:58.626612"], ["updated_at", "2018-09-17 19:10:58.626612"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 3], ["created_at", "2018-09-17 19:10:58.665232"], ["updated_at", "2018-09-17 19:10:58.665232"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 3], ["created_at", "2018-09-17 19:10:58.701985"], ["updated_at", "2018-09-17 19:10:58.701985"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Green"], ["description", "Green"], ["preview", "preview.png"], ["price_cents", 9151], ["created_at", "2018-09-17 19:10:58.735136"], ["updated_at", "2018-09-17 19:10:58.735136"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 4], ["favorite", "t"], ["created_at", "2018-09-17 19:10:58.768685"], ["updated_at", "2018-09-17 19:10:58.768685"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 4], ["created_at", "2018-09-17 19:10:58.804032"], ["updated_at", "2018-09-17 19:10:58.804032"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 4], ["created_at", "2018-09-17 19:10:58.839254"], ["updated_at", "2018-09-17 19:10:58.839254"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 4], ["created_at", "2018-09-17 19:10:58.872456"], ["updated_at", "2018-09-17 19:10:58.872456"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 4], ["created_at", "2018-09-17 19:10:58.907071"], ["updated_at", "2018-09-17 19:10:58.907071"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Red"], ["description", "Red"], ["preview", "preview.png"], ["price_cents", 7981], ["created_at", "2018-09-17 19:10:58.941998"], ["updated_at", "2018-09-17 19:10:58.941998"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 5], ["favorite", "t"], ["created_at", "2018-09-17 19:10:58.976970"], ["updated_at", "2018-09-17 19:10:58.976970"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 5], ["created_at", "2018-09-17 19:10:59.012532"], ["updated_at", "2018-09-17 19:10:59.012532"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 5], ["created_at", "2018-09-17 19:10:59.047497"], ["updated_at", "2018-09-17 19:10:59.047497"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 5], ["created_at", "2018-09-17 19:10:59.079111"], ["updated_at", "2018-09-17 19:10:59.079111"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 5], ["created_at", "2018-09-17 19:10:59.111583"], ["updated_at", "2018-09-17 19:10:59.111583"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Yellow"], ["description", "Yellow"], ["preview", "preview.png"], ["price_cents", 4614], ["created_at", "2018-09-17 19:10:59.147316"], ["updated_at", "2018-09-17 19:10:59.147316"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 6], ["favorite", "t"], ["created_at", "2018-09-17 19:10:59.182108"], ["updated_at", "2018-09-17 19:10:59.182108"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 6], ["created_at", "2018-09-17 19:10:59.217845"], ["updated_at", "2018-09-17 19:10:59.217845"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 6], ["created_at", "2018-09-17 19:10:59.250998"], ["updated_at", "2018-09-17 19:10:59.250998"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 6], ["created_at", "2018-09-17 19:10:59.287085"], ["updated_at", "2018-09-17 19:10:59.287085"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 6], ["created_at", "2018-09-17 19:10:59.320594"], ["updated_at", "2018-09-17 19:10:59.320594"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:11:17 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (700.5ms)
+Completed 200 OK in 720ms (Views: 710.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:11:20 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (114.7ms)
+Completed 200 OK in 123ms (Views: 122.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:11:23 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (243.1ms)
+Completed 200 OK in 261ms (Views: 254.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:11:29 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (162.2ms)
+Completed 200 OK in 178ms (Views: 175.2ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admin/products/1" for 127.0.0.1 at 2018-09-17 22:11:36 +0300
+Processing by Admin::ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Mwwu5RPoip1myNd/EmvuSCOltRuVOi0riivy1nj4C7KeBYXgMeDvmjh8bgTykHnRvScOCUWYybNi3/iC1xDc/g==", "id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/products
+Completed 302 Found in 48ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:11:36 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (155.1ms)
+Completed 200 OK in 169ms (Views: 167.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:11:40 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (114.8ms)
+Completed 200 OK in 122ms (Views: 121.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:11:41 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (172.6ms)
+Completed 200 OK in 186ms (Views: 183.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:11:43 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (151.2ms)
+Completed 200 OK in 165ms (Views: 163.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:15:49 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (164.0ms)
+Completed 200 OK in 180ms (Views: 176.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:15:52 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (144.8ms)
+Completed 200 OK in 153ms (Views: 152.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:15:59 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (199.8ms)
+Completed 200 OK in 219ms (Views: 213.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:16:04 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (155.4ms)
+Completed 200 OK in 171ms (Views: 169.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/products/6" for 127.0.0.1 at 2018-09-17 22:16:10 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (148.1ms)
+Completed 200 OK in 167ms (Views: 164.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:16:13 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (153.6ms)
+Completed 200 OK in 168ms (Views: 166.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:16:14 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (187.0ms)
+Completed 200 OK in 200ms (Views: 198.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/images/25" for 127.0.0.1 at 2018-09-17 22:16:18 +0300
+Processing by Admin::ImagesController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (245.7ms)
+Completed 200 OK in 261ms (Views: 258.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:16:25 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (133.4ms)
+Completed 200 OK in 141ms (Views: 140.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:26:42 +0300
+  
+NameError (uninitialized constant Product::ActiveRecordExtension):
+  
+app/models/product.rb:2:in `<class:Product>'
+app/models/product.rb:1:in `<top (required)>'
+app/admin/products.rb:1:in `<top (required)>'
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:27:06 +0300
+  
+NoMethodError (undefined method `has_money_columns' for Product (call 'Product.connection' to establish a connection):Class):
+  
+app/models/product.rb:3:in `<class:Product>'
+app/models/product.rb:1:in `<top (required)>'
+app/admin/products.rb:1:in `<top (required)>'
+config/routes.rb:4:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:27:52 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (137.6ms)
+Completed 200 OK in 145ms (Views: 143.7ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:27:55 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (174.7ms)
+Completed 200 OK in 191ms (Views: 186.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:27:58 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (161.2ms)
+Completed 500 Internal Server Error in 177ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fa885c02f30>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:31:17 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (154.2ms)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fa884475fc0>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:31:23 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (118.4ms)
+Completed 200 OK in 126ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:31:27 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (171.5ms)
+Completed 200 OK in 187ms (Views: 183.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:31:28 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (140.5ms)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fa884011830>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:31:49 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (589.1ms)
+Completed 500 Internal Server Error in 619ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fc283af47e8>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:36:33 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (159.9ms)
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fc279e12c18>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:37:22 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (150.5ms)
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fc2821cc4a0>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "images"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price_cents" integer DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180829130635)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180829124543),
+(20180829125607);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 19:38:16.474076"], ["updated_at", "2018-09-17 19:38:16.474076"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "images"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price_cents" integer DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180829130635)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180829124543),
+(20180829125607);
+
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 19:38:16.505935"], ["updated_at", "2018-09-17 19:38:16.505935"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-09-17 19:38:16.509099"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Blue"], ["description", "Blue"], ["preview", "preview.png"], ["price_cents", 5610], ["created_at", "2018-09-17 19:38:16.575907"], ["updated_at", "2018-09-17 19:38:16.575907"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 1], ["favorite", "t"], ["created_at", "2018-09-17 19:38:16.634051"], ["updated_at", "2018-09-17 19:38:16.634051"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 1], ["created_at", "2018-09-17 19:38:16.675767"], ["updated_at", "2018-09-17 19:38:16.675767"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 1], ["created_at", "2018-09-17 19:38:16.712772"], ["updated_at", "2018-09-17 19:38:16.712772"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 1], ["created_at", "2018-09-17 19:38:16.756886"], ["updated_at", "2018-09-17 19:38:16.756886"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 1], ["created_at", "2018-09-17 19:38:16.801193"], ["updated_at", "2018-09-17 19:38:16.801193"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dark"], ["description", "Dark"], ["preview", "preview.png"], ["price_cents", 3654], ["created_at", "2018-09-17 19:38:16.851057"], ["updated_at", "2018-09-17 19:38:16.851057"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 2], ["favorite", "t"], ["created_at", "2018-09-17 19:38:16.897596"], ["updated_at", "2018-09-17 19:38:16.897596"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 2], ["created_at", "2018-09-17 19:38:16.944752"], ["updated_at", "2018-09-17 19:38:16.944752"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 2], ["created_at", "2018-09-17 19:38:16.994160"], ["updated_at", "2018-09-17 19:38:16.994160"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 2], ["created_at", "2018-09-17 19:38:17.035559"], ["updated_at", "2018-09-17 19:38:17.035559"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 2], ["created_at", "2018-09-17 19:38:17.076014"], ["updated_at", "2018-09-17 19:38:17.076014"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Green"], ["description", "Green"], ["preview", "preview.png"], ["price_cents", 7210], ["created_at", "2018-09-17 19:38:17.108782"], ["updated_at", "2018-09-17 19:38:17.108782"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 3], ["favorite", "t"], ["created_at", "2018-09-17 19:38:17.146351"], ["updated_at", "2018-09-17 19:38:17.146351"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 3], ["created_at", "2018-09-17 19:38:17.181622"], ["updated_at", "2018-09-17 19:38:17.181622"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 3], ["created_at", "2018-09-17 19:38:17.215009"], ["updated_at", "2018-09-17 19:38:17.215009"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 3], ["created_at", "2018-09-17 19:38:17.251128"], ["updated_at", "2018-09-17 19:38:17.251128"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 3], ["created_at", "2018-09-17 19:38:17.284560"], ["updated_at", "2018-09-17 19:38:17.284560"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Red"], ["description", "Red"], ["preview", "preview.png"], ["price_cents", 7879], ["created_at", "2018-09-17 19:38:17.321073"], ["updated_at", "2018-09-17 19:38:17.321073"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 4], ["favorite", "t"], ["created_at", "2018-09-17 19:38:17.354676"], ["updated_at", "2018-09-17 19:38:17.354676"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 4], ["created_at", "2018-09-17 19:38:17.387701"], ["updated_at", "2018-09-17 19:38:17.387701"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 4], ["created_at", "2018-09-17 19:38:17.420308"], ["updated_at", "2018-09-17 19:38:17.420308"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 4], ["created_at", "2018-09-17 19:38:17.453560"], ["updated_at", "2018-09-17 19:38:17.453560"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 4], ["created_at", "2018-09-17 19:38:17.484117"], ["updated_at", "2018-09-17 19:38:17.484117"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price_cents", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Yellow"], ["description", "Yellow"], ["preview", "preview.png"], ["price_cents", 6716], ["created_at", "2018-09-17 19:38:17.515048"], ["updated_at", "2018-09-17 19:38:17.515048"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 5], ["favorite", "t"], ["created_at", "2018-09-17 19:38:17.548844"], ["updated_at", "2018-09-17 19:38:17.548844"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 5], ["created_at", "2018-09-17 19:38:17.581888"], ["updated_at", "2018-09-17 19:38:17.581888"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 5], ["created_at", "2018-09-17 19:38:17.614497"], ["updated_at", "2018-09-17 19:38:17.614497"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 5], ["created_at", "2018-09-17 19:38:17.647373"], ["updated_at", "2018-09-17 19:38:17.647373"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 5], ["created_at", "2018-09-17 19:38:17.678689"], ["updated_at", "2018-09-17 19:38:17.678689"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:38:32 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (646.0ms)
+Completed 500 Internal Server Error in 676ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fb0b6660e18>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:38:37 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (128.8ms)
+Completed 200 OK in 138ms (Views: 137.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:38:39 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (139.5ms)
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fb0b2ddeec8>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started POST "/__web_console/repl_sessions/225fb0ebb3c16718586d1cc5288dab41/trace" for 127.0.0.1 at 2018-09-17 22:40:42 +0300
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:41:44 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (159.0ms)
+Completed 200 OK in 174ms (Views: 170.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:42:24 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (155.1ms)
+Completed 200 OK in 171ms (Views: 166.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:42:30 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (153.0ms)
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `fetch' for #<Product:0x007fb0b38cd438>):
+    1: insert_tag renderer_for(:show)
+  
+app/models/admin_tables_extras.rb:18:in `block in money_row'
+app/models/admin_tables_extras.rb:14:in `money_row'
+app/admin/products.rb:18:in `block (3 levels) in <top (required)>'
+app/admin/products.rb:16:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:42:49 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (132.9ms)
+Completed 200 OK in 154ms (Views: 144.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:43:57 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (160.5ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `price' for #<Product:0x007fb0b70c4ee0>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `public_send'
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:44:45 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (160.3ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `price' for #<Product:0x007fb0b74d8270>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `public_send'
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:45:56 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (161.0ms)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `column' for "                <div class=\"index_as_table\"></div>\n":ActiveAdmin::Views::IndexAsTable
+Did you mean?  columns):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:46:10 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (189.7ms)
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `"                          <div class=\"columns\"><div style=\"clear:both;\"></div></div>\n"' for #<Product:0x007fb0b7473f50>):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:7:in `public_send'
+app/models/admin_tables_extras.rb:7:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:46:45 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (162.9ms)
+Completed 200 OK in 180ms (Views: 174.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:46:49 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (135.5ms)
+Completed 200 OK in 152ms (Views: 149.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "images"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price" integer DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180829130635)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180829124543),
+(20180829125607);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 19:48:15.546533"], ["updated_at", "2018-09-17 19:48:15.546533"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "images"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price" integer DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180829130635)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180829124543),
+(20180829125607);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 19:48:15.578833"], ["updated_at", "2018-09-17 19:48:15.578833"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-09-17 19:48:15.583339"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "images"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price" integer DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180829130635)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180829124543),
+(20180829125607);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 19:50:09.605233"], ["updated_at", "2018-09-17 19:50:09.605233"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_type" varchar, "resource_id" integer, "author_type" varchar, "author_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "images"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "alt" varchar, "product_id" integer, "favorite" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX "index_images_on_product_id" ON "images" ("product_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "products"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "preview" varchar, "price" integer DEFAULT 0 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180829130635)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180829124543),
+(20180829125607);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-17 19:50:09.639701"], ["updated_at", "2018-09-17 19:50:09.639701"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-09-17 19:50:09.646322"], ["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Blue"], ["description", "Blue"], ["preview", "preview.png"], ["price", 9305], ["created_at", "2018-09-17 19:50:09.708094"], ["updated_at", "2018-09-17 19:50:09.708094"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 1], ["favorite", "t"], ["created_at", "2018-09-17 19:50:09.784840"], ["updated_at", "2018-09-17 19:50:09.784840"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 1], ["created_at", "2018-09-17 19:50:09.829657"], ["updated_at", "2018-09-17 19:50:09.829657"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 1], ["created_at", "2018-09-17 19:50:09.880021"], ["updated_at", "2018-09-17 19:50:09.880021"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 1], ["created_at", "2018-09-17 19:50:09.916514"], ["updated_at", "2018-09-17 19:50:09.916514"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 1], ["created_at", "2018-09-17 19:50:09.953009"], ["updated_at", "2018-09-17 19:50:09.953009"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dark"], ["description", "Dark"], ["preview", "preview.png"], ["price", 1729], ["created_at", "2018-09-17 19:50:09.986998"], ["updated_at", "2018-09-17 19:50:09.986998"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 2], ["favorite", "t"], ["created_at", "2018-09-17 19:50:10.022337"], ["updated_at", "2018-09-17 19:50:10.022337"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 2], ["created_at", "2018-09-17 19:50:10.061597"], ["updated_at", "2018-09-17 19:50:10.061597"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 2], ["created_at", "2018-09-17 19:50:10.099077"], ["updated_at", "2018-09-17 19:50:10.099077"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 2], ["created_at", "2018-09-17 19:50:10.133876"], ["updated_at", "2018-09-17 19:50:10.133876"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 2], ["created_at", "2018-09-17 19:50:10.173087"], ["updated_at", "2018-09-17 19:50:10.173087"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Green"], ["description", "Green"], ["preview", "preview.png"], ["price", 3304], ["created_at", "2018-09-17 19:50:10.205909"], ["updated_at", "2018-09-17 19:50:10.205909"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 3], ["favorite", "t"], ["created_at", "2018-09-17 19:50:10.239563"], ["updated_at", "2018-09-17 19:50:10.239563"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 3], ["created_at", "2018-09-17 19:50:10.275285"], ["updated_at", "2018-09-17 19:50:10.275285"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 3], ["created_at", "2018-09-17 19:50:10.309775"], ["updated_at", "2018-09-17 19:50:10.309775"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 3], ["created_at", "2018-09-17 19:50:10.344265"], ["updated_at", "2018-09-17 19:50:10.344265"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 3], ["created_at", "2018-09-17 19:50:10.380763"], ["updated_at", "2018-09-17 19:50:10.380763"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Red"], ["description", "Red"], ["preview", "preview.png"], ["price", 8450], ["created_at", "2018-09-17 19:50:10.413361"], ["updated_at", "2018-09-17 19:50:10.413361"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 4], ["favorite", "t"], ["created_at", "2018-09-17 19:50:10.446155"], ["updated_at", "2018-09-17 19:50:10.446155"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 4], ["created_at", "2018-09-17 19:50:10.481924"], ["updated_at", "2018-09-17 19:50:10.481924"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 4], ["created_at", "2018-09-17 19:50:10.516239"], ["updated_at", "2018-09-17 19:50:10.516239"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 4], ["created_at", "2018-09-17 19:50:10.548950"], ["updated_at", "2018-09-17 19:50:10.548950"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 4], ["created_at", "2018-09-17 19:50:10.585933"], ["updated_at", "2018-09-17 19:50:10.585933"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "preview", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Yellow"], ["description", "Yellow"], ["preview", "preview.png"], ["price", 7504], ["created_at", "2018-09-17 19:50:10.618125"], ["updated_at", "2018-09-17 19:50:10.618125"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "favorite", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["image", "1.png"], ["alt", "1.png"], ["product_id", 5], ["favorite", "t"], ["created_at", "2018-09-17 19:50:10.649624"], ["updated_at", "2018-09-17 19:50:10.649624"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "2.png"], ["alt", "2.png"], ["product_id", 5], ["created_at", "2018-09-17 19:50:10.683741"], ["updated_at", "2018-09-17 19:50:10.683741"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "3.png"], ["alt", "3.png"], ["product_id", 5], ["created_at", "2018-09-17 19:50:10.716499"], ["updated_at", "2018-09-17 19:50:10.716499"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "4.png"], ["alt", "4.png"], ["product_id", 5], ["created_at", "2018-09-17 19:50:10.749439"], ["updated_at", "2018-09-17 19:50:10.749439"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "images" ("image", "alt", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["image", "5.png"], ["alt", "5.png"], ["product_id", 5], ["created_at", "2018-09-17 19:50:10.785604"], ["updated_at", "2018-09-17 19:50:10.785604"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:50:24 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (560.6ms)
+Completed 200 OK in 589ms (Views: 574.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 22:50:27 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (118.7ms)
+Completed 200 OK in 127ms (Views: 125.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:50:29 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (158.5ms)
+Completed 200 OK in 172ms (Views: 170.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:50:31 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (171.0ms)
+Completed 200 OK in 186ms (Views: 182.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/images/25" for 127.0.0.1 at 2018-09-17 22:50:34 +0300
+Processing by Admin::ImagesController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (146.1ms)
+Completed 200 OK in 166ms (Views: 159.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:50:39 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (152.3ms)
+Completed 200 OK in 166ms (Views: 164.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:50:42 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (120.1ms)
+Completed 200 OK in 134ms (Views: 132.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products/5/edit" for 127.0.0.1 at 2018-09-17 22:50:47 +0300
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb (185.5ms)
+Completed 200 OK in 203ms (Views: 201.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:50:50 +0300
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4+fnocYHC0WdWnSi5oo0UjsIPf7VzZp5GYmbeUZIyABO7kyk5A9uQsPuzdkGcaPLpYqG7AVvfuHxfZEt6aAfTA==", "product"=>{"title"=>"Yellow", "price"=>"7504", "preview_cache"=>"", "remove_preview"=>"0"}, "commit"=>"Update Product", "id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Unpermitted parameter: :price
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "products" SET "preview" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["preview", "preview.png"], ["updated_at", "2018-09-17 19:50:50.833988"], ["id", 5]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/products/5
+Completed 302 Found in 50ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:50:50 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (147.7ms)
+Completed 200 OK in 164ms (Views: 161.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:52:36 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (129.3ms)
+Completed 200 OK in 151ms (Views: 142.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:52:39 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (193.8ms)
+Completed 200 OK in 210ms (Views: 205.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:52:41 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (150.5ms)
+Completed 200 OK in 165ms (Views: 162.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:52:56 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (128.6ms)
+Completed 200 OK in 143ms (Views: 142.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products/5/edit" for 127.0.0.1 at 2018-09-17 22:53:00 +0300
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb (154.2ms)
+Completed 200 OK in 181ms (Views: 178.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:53:03 +0300
+Processing by Admin::ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eH3ynBo5Y4Yc+b02vEzbLrLvrKrp58Lo89XcMMiX6FjVdFmZODEGgUJNBE1ct0y3LG0XuDlFJnAbIdZkZ38/FA==", "product"=>{"title"=>"Yellow", "price"=>"7504", "preview_cache"=>"", "remove_preview"=>"0"}, "commit"=>"Update Product", "id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "products" SET "preview" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["preview", "preview.png"], ["updated_at", "2018-09-17 19:53:03.174715"], ["id", 5]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/products/5
+Completed 302 Found in 42ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:53:03 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (143.2ms)
+Completed 200 OK in 158ms (Views: 156.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:58:25 +0300
+  
+SyntaxError (/Users/kirill/Documents/react_api/app/models/concerns/active_record_extension.rb:17: syntax error, unexpected end-of-input, expecting keyword_end
+    end
+       ^):
+  
+app/models/concerns/active_record_extension.rb:17: syntax error, unexpected end-of-input, expecting keyword_end
+app/models/product.rb:2:in `<class:Product>'
+app/models/product.rb:1:in `<top (required)>'
+app/admin/products.rb:1:in `<top (required)>'
+config/routes.rb:4:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 22:59:03 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (142.7ms)
+Completed 200 OK in 166ms (Views: 155.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 22:59:07 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (179.1ms)
+Completed 200 OK in 195ms (Views: 191.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:59:08 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (152.3ms)
+Completed 200 OK in 166ms (Views: 163.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:59:38 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (163.7ms)
+Completed 200 OK in 179ms (Views: 175.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 22:59:52 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (187.8ms)
+Completed 200 OK in 203ms (Views: 200.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:00:01 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (175.3ms)
+Completed 200 OK in 193ms (Views: 190.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:01:40 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (156.1ms)
+Completed 200 OK in 172ms (Views: 169.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 23:01:43 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (135.8ms)
+Completed 200 OK in 150ms (Views: 147.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products/5/edit" for 127.0.0.1 at 2018-09-17 23:01:47 +0300
+Processing by Admin::ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/edit.html.arb (170.1ms)
+Completed 200 OK in 184ms (Views: 182.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:01:50 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (136.4ms)
+Completed 200 OK in 150ms (Views: 147.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:03:20 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (153.8ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `cents' for ActiveRecordExtension:Module):
+    1: insert_tag renderer_for(:index)
+  
+app/models/concerns/active_record_extension.rb:21:in `block in <module:ActiveRecordExtension>'
+app/models/admin_tables_extras.rb:5:in `public_send'
+app/models/admin_tables_extras.rb:5:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:03:37 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (153.0ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `symbol' for nil:NilClass):
+    1: insert_tag renderer_for(:index)
+  
+app/models/admin_tables_extras.rb:5:in `block in money_column'
+app/models/admin_tables_extras.rb:3:in `money_column'
+app/admin/products.rb:7:in `block (2 levels) in <top (required)>'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:04:11 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (144.7ms)
+Completed 200 OK in 161ms (Views: 156.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/products/5" for 127.0.0.1 at 2018-09-17 23:04:19 +0300
+Processing by Admin::ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/show.html.arb (137.5ms)
+Completed 200 OK in 151ms (Views: 149.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-09-17 23:05:23 +0300
+Processing by Admin::DashboardController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (127.8ms)
+Completed 200 OK in 135ms (Views: 134.5ms)
+
+
+Started GET "/admin/images" for 127.0.0.1 at 2018-09-17 23:05:26 +0300
+Processing by Admin::ImagesController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "images" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY "images"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "products"."title", "products"."id" FROM "products"[0m
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (194.2ms)
+Completed 200 OK in 210ms (Views: 205.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:05:32 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (155.3ms)
+Completed 200 OK in 172ms (Views: 167.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2018-09-17 23:06:20 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/v1"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/products" for 127.0.0.1 at 2018-09-17 23:07:48 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:07:57 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (201.4ms)
+Completed 200 OK in 245ms (Views: 242.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/v1" for 127.0.0.1 at 2018-09-17 23:08:23 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/v1"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-09-17 23:08:35 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api" for 127.0.0.1 at 2018-09-17 23:08:41 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/api"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/admin/products" for 127.0.0.1 at 2018-09-17 23:20:02 +0300
+Processing by Admin::ProductsController#index as HTML
+  Rendering /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM "products" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /Users/kirill/.rvm/gems/ruby-2.4.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (170.8ms)
+Completed 200 OK in 187ms (Views: 184.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/v1/products" for 127.0.0.1 at 2018-09-17 23:29:04 +0300
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Started GET "/v1/products/1" for 127.0.0.1 at 2018-09-17 23:29:38 +0300
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/v1/products" for 127.0.0.1 at 2018-09-17 23:29:41 +0300
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Started GET "/v1/gallery" for 127.0.0.1 at 2018-09-17 23:29:44 +0300
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."favorite" = ?[0m  [["favorite", "t"]]
